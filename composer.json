@@ -1,0 +1,22 @@
+{
+  "name": "rhurling/nonces",
+  "description": "Allow the easy use of Nonces",
+  "minimum-stability": "dev",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "Rouven Hurling",
+      "email": "rouven@rhurling.de"
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "5.0.*",
+    "satooshi/php-coveralls": "~1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "RouvenHurling\\Nonces\\": "src"
+    }
+  }
+}
