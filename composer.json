@@ -1,7 +1,7 @@
 {
   "name": "rhurling/nonces",
-  "description": "Allow the easy use of Nonces",
-  "minimum-stability": "dev",
+  "description": "Allows the easy use of WordPress-like Nonces in an object-oriented way",
+  "version": "1.0.0",
   "license": "GPLv2",
   "authors": [
     {
@@ -11,7 +11,7 @@
   ],
   "require": {},
   "require-dev": {
-    "phpunit/phpunit": "5.0.*",
+    "phpunit/phpunit": "5.2.*",
     "satooshi/php-coveralls": "~1.0"
   },
   "autoload": {
