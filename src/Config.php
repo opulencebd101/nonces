@@ -61,6 +61,10 @@ class Config implements ConfigInterface
      */
     public static function setAlgorithm($algorithm)
     {
+        if ( ! in_array($algorithm, hash_algos())) {
+            return false;
+        }
+
         self::$algorithm = (string)$algorithm;
     }
 

@@ -28,6 +28,10 @@ trait ConfigurableTrait
      */
     function setAlgorithm($algorithm)
     {
+        if ( ! in_array($algorithm, hash_algos())) {
+            return false;
+        }
+
         $this->algorithm = (string)$algorithm;
 
         return $this;
