@@ -104,9 +104,9 @@ class Nonce implements NonceInterface, ConfigurableInterface
     }
 
     /**
-     * @param $data
+     * @param string $data
      *
-     * @return mixed
+     * @return string
      */
     protected function hash($data)
     {
