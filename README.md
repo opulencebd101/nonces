@@ -9,14 +9,22 @@ Composer package that replicates WordPress nonces in a object oriented way.
 Usage
 -----
 
+### Configure Nonce Defaults
+ 
+``` php
+use RouvenHurling\Nonces\Config;
+
+Config::setSalt($salt);
+Config::setUserId($userId);
+Config::setSessionToken($sessionToken);
+```
+
 ### Create Nonce
 
 ``` php
 use RouvenHurling\Nonces\Nonce;
 
 $nonce = new Nonce('readme-action');
-$nonce->setSalt(NONCE_SALT);
- 
 $nonce->generate();
 ```
 
@@ -26,15 +34,17 @@ $nonce->generate();
 use RouvenHurling\Nonces\Nonce;
 
 $nonce = new Nonce('readme-action');
-$nonce->setSalt(NONCE_SALT);
-
-$nonce->verify($_nonce);
+$nonce->verify($given_nonce);
 ```
 
-### Other Nonce specific Options
+### Override global configuration per Nonce
 
 ``` php
-$nonce->setSalt(NONCE_SALT);
+$nonce = new Nonce('Action', $myConfig);
+
+$nonce->setLifespan(172800);
+$nonce->setAlgorithm('sha256');
+$nonce->setSalt($salt);
 $nonce->setUserId($userId);
 $nonce->setSessionToken($sessionToken);
 ```
@@ -42,5 +52,4 @@ $nonce->setSessionToken($sessionToken);
 Todo
 ----
 
- * Allow setting global defaults (for Salt, User ID and Session Token)
  * Split Verification into its own class?
