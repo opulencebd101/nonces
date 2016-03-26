@@ -39,16 +39,22 @@ class Nonce implements NonceInterface, ConfigurableInterface
     /**
      * Nonce constructor.
      *
-     * @param $action string|int Action string to use in Nonce generation
-     * @param $lifespan int Lifespan of seconds for Nonces
-     * @param $algo string Algorithm to use with hash_hmac
+     * @param string|int $action Action string to use in Nonce generation
+     * @param ConfigInterface|null $config
      */
-    public function __construct($action = -1, $lifespan = 86400, $algo = 'md5')
+    public function __construct($action = -1, ConfigInterface $config = null)
     {
-        $this->lifespan = $lifespan;
-        $this->algo     = $algo;
-
         $this->action = $action;
+
+        if (is_null($config)) {
+            $config = new Config();
+        }
+
+        $this->lifespan     = $config->getLifespan();
+        $this->algorithm    = $config->getAlgorithm();
+        $this->salt         = $config->getSalt();
+        $this->sessionToken = $config->getSessionToken();
+        $this->userId       = $config->getUserId();
 
         return $this;
     }
