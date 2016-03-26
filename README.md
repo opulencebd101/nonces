@@ -1,7 +1,7 @@
 WordPress Object Oriented Nonces
 ================================
 
-Composer package that replicates WordPress nonces in a object oriented way.
+Composer package that replicates WordPress nonces in an object oriented way.
 
 [![Build Status](https://travis-ci.org/rhurling/wp-oo-nonces.svg?branch=master)](https://travis-ci.org/rhurling/wp-oo-nonces)
 [![Coverage Status](https://coveralls.io/repos/github/rhurling/wp-oo-nonces/badge.svg?branch=master)](https://coveralls.io/github/rhurling/wp-oo-nonces?branch=master)
@@ -49,8 +49,3 @@ $nonce->setSalt($salt);
 $nonce->setUserId($userId);
 $nonce->setSessionToken($sessionToken);
 ```
-
-Todo
-----
-
- * Split Verification into its own class?
