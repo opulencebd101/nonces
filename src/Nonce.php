@@ -6,37 +6,35 @@ namespace RouvenHurling\Nonces;
  * Class Nonce
  * @package RouvenHurling\Nonces
  */
-/**
- * Class Nonce
- * @package RouvenHurling\Nonces
- */
-class Nonce
+class Nonce implements ConfigurableInterface
 {
-    /**
-     * @var string
-     */
-    private $algo;
-    /**
-     * @var int
-     */
-    private $lifespan;
-    /**
-     * @var string
-     */
-    private $salt;
+
+    use ConfigurableTrait;
 
     /**
      * @var string|int
      */
     private $action;
     /**
-     * @var int|bool
+     * @var string
      */
-    private $userId = false;
+    private $algorithm = 'md5';
     /**
-     * @var string|bool
+     * @var int
      */
-    private $sessionToken = false;
+    private $lifespan = 86400;
+    /**
+     * @var string
+     */
+    private $salt;
+    /**
+     * @var string
+     */
+    private $sessionToken;
+    /**
+     * @var int
+     */
+    private $userId;
 
     /**
      * Nonce constructor.
@@ -66,42 +64,6 @@ class Nonce
     }
 
     /**
-     * @param $salt
-     *
-     * @return $this
-     */
-    function setSalt($salt)
-    {
-        $this->salt = $salt;
-
-        return $this;
-    }
-
-    /**
-     * @param $userId
-     *
-     * @return $this
-     */
-    function setUserId($userId)
-    {
-        $this->userId = (int)$userId;
-
-        return $this;
-    }
-
-    /**
-     * @param $sessionToken
-     *
-     * @return $this
-     */
-    function setSessionToken($sessionToken)
-    {
-        $this->sessionToken = (string)$sessionToken;
-
-        return $this;
-    }
-
-    /**
      * Generates the nonce string
      *
      * @return string
@@ -112,7 +74,7 @@ class Nonce
     }
 
     /**
-     * @param $nonce string Nonce to verify
+     * @param string $nonce Nonce to verify
      *
      * @return bool|int
      */
@@ -144,7 +106,7 @@ class Nonce
      */
     protected function hash($data)
     {
-        return substr(hash_hmac($this->algo, $data, $this->salt), -12, 10);
+        return substr(hash_hmac($this->algorithm, $data, $this->salt), -12, 10);
     }
 
     /**
@@ -156,10 +118,10 @@ class Nonce
     {
         $data = ($this->tick() + $tickAdjust) . '|' . $this->action;
 
-        if ($this->userId !== false) {
+        if ($this->userId) {
             $data .= '|' . $this->userId;
         }
-        if ($this->sessionToken !== false) {
+        if ($this->sessionToken) {
             $data .= '|' . $this->sessionToken;
         }
 
@@ -167,7 +129,7 @@ class Nonce
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     protected function tick()
     {
