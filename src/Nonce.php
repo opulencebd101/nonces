@@ -6,7 +6,7 @@ namespace RouvenHurling\Nonces;
  * Class Nonce
  * @package RouvenHurling\Nonces
  */
-class Nonce implements ConfigurableInterface
+class Nonce implements NonceInterface, ConfigurableInterface
 {
 
     use ConfigurableTrait;
