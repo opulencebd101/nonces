@@ -55,8 +55,6 @@ class Nonce implements NonceInterface, ConfigurableInterface
         $this->salt         = $config->getSalt();
         $this->sessionToken = $config->getSessionToken();
         $this->userId       = $config->getUserId();
-
-        return $this;
     }
 
     /**
@@ -64,7 +62,7 @@ class Nonce implements NonceInterface, ConfigurableInterface
      *
      * @return string
      */
-    function __toString()
+    public function __toString()
     {
         return $this->generate();
     }
@@ -74,7 +72,7 @@ class Nonce implements NonceInterface, ConfigurableInterface
      *
      * @return string
      */
-    function generate()
+    public function generate()
     {
         return $this->hash($this->data());
     }
@@ -84,7 +82,7 @@ class Nonce implements NonceInterface, ConfigurableInterface
      *
      * @return bool|int
      */
-    function verify($nonce)
+    public function verify($nonce)
     {
         $nonce = (string)$nonce;
 

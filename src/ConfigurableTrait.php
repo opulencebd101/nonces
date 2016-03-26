@@ -14,7 +14,7 @@ trait ConfigurableTrait
      *
      * @return $this
      */
-    function setLifespan($lifespan)
+    public function setLifespan($lifespan)
     {
         $this->lifespan = (int)$lifespan;
 
@@ -26,7 +26,7 @@ trait ConfigurableTrait
      *
      * @return $this
      */
-    function setAlgorithm($algorithm)
+    public function setAlgorithm($algorithm)
     {
         if ( ! in_array($algorithm, hash_algos())) {
             return false;
@@ -42,7 +42,7 @@ trait ConfigurableTrait
      *
      * @return $this
      */
-    function setSalt($salt)
+    public function setSalt($salt)
     {
         $this->salt = (string)$salt;
 
@@ -54,7 +54,7 @@ trait ConfigurableTrait
      *
      * @return $this
      */
-    function setSessionToken($sessionToken)
+    public function setSessionToken($sessionToken)
     {
         $this->sessionToken = (string)$sessionToken;
 
@@ -66,7 +66,7 @@ trait ConfigurableTrait
      *
      * @return $this
      */
-    function setUserId($userId)
+    public function setUserId($userId)
     {
         $this->userId = (int)$userId;
 

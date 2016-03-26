@@ -20,7 +20,7 @@ interface ConfigInterface
     public function getAlgorithm();
 
     /**
-     * @return strint
+     * @return string
      */
     public function getSalt();
 
