@@ -43,7 +43,7 @@ class Config implements ConfigInterface
      */
     public static function setLifespan($lifespan)
     {
-        self::$lifespan = $lifespan;
+        self::$lifespan = (int)$lifespan;
     }
 
     /**
@@ -56,10 +56,12 @@ class Config implements ConfigInterface
 
     /**
      * @param string $algorithm
+     *
+     * @return bool|void
      */
     public static function setAlgorithm($algorithm)
     {
-        self::$algorithm = $algorithm;
+        self::$algorithm = (string)$algorithm;
     }
 
 
@@ -76,7 +78,7 @@ class Config implements ConfigInterface
      */
     public static function setSalt($salt)
     {
-        self::$salt = $salt;
+        self::$salt = (string)$salt;
     }
 
     /**
@@ -92,7 +94,7 @@ class Config implements ConfigInterface
      */
     public static function setSessionToken($sessionToken)
     {
-        self::$sessionToken = $sessionToken;
+        self::$sessionToken = (string)$sessionToken;
     }
 
     /**
@@ -108,7 +110,7 @@ class Config implements ConfigInterface
      */
     public static function setUserId($userId)
     {
-        self::$userId = $userId;
+        self::$userId = (int)$userId;
     }
 
 }

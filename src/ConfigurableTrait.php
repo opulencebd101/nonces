@@ -16,7 +16,7 @@ trait ConfigurableTrait
      */
     function setLifespan($lifespan)
     {
-        $this->lifespan = $lifespan;
+        $this->lifespan = (int)$lifespan;
 
         return $this;
     }
@@ -28,7 +28,7 @@ trait ConfigurableTrait
      */
     function setAlgorithm($algorithm)
     {
-        $this->algorithm = $algorithm;
+        $this->algorithm = (string)$algorithm;
 
         return $this;
     }
@@ -40,7 +40,7 @@ trait ConfigurableTrait
      */
     function setSalt($salt)
     {
-        $this->salt = $salt;
+        $this->salt = (string)$salt;
 
         return $this;
     }
@@ -68,5 +68,5 @@ trait ConfigurableTrait
 
         return $this;
     }
-    
+
 }
