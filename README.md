@@ -5,6 +5,7 @@ Composer package that replicates WordPress nonces in a object oriented way.
 
 [![Build Status](https://travis-ci.org/rhurling/wp-oo-nonces.svg?branch=master)](https://travis-ci.org/rhurling/wp-oo-nonces)
 [![Coverage Status](https://coveralls.io/repos/github/rhurling/wp-oo-nonces/badge.svg?branch=master)](https://coveralls.io/github/rhurling/wp-oo-nonces?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/rhurling/wp-oo-nonces/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/rhurling/wp-oo-nonces/?branch=master)
 
 Usage
 -----
