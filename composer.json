@@ -1,7 +1,7 @@
 {
   "name": "rhurling/nonces",
   "description": "Allows the easy use of WordPress-like Nonces in an object-oriented way",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "license": "GPLv2",
   "authors": [
     {

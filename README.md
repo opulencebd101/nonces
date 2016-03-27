@@ -32,16 +32,17 @@ $nonce->generate();
 ### Verify Nonce
 
 ``` php
-use RouvenHurling\Nonces\Nonce;
+use RouvenHurling\Nonces\Verifer;
 
-$nonce = new Nonce('readme-action');
-$nonce->verify($given_nonce);
+$verifier = new Verifier();
+$verifier->verify($nonce, $action);
 ```
 
 ### Override global configuration per Nonce
 
 ``` php
 $nonce = new Nonce('Action', $myConfig);
+$verifier = new Verifier($myConfig);
 
 $nonce->setLifespan(172800);
 $nonce->setAlgorithm('sha256');
