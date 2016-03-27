@@ -2,16 +2,6 @@
 
 namespace RouvenHurling\Nonces;
 
-function time($setTime = false)
-{
-    static $time;
-    if ($setTime) {
-        $time = $setTime;
-    }
-
-    return $time;
-}
-
 class NonceTest extends \PHPUnit_Framework_TestCase
 {
 
