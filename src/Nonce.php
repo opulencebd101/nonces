@@ -77,30 +77,4 @@ class Nonce implements NonceInterface, ConfigurableInterface
         return $this->hash($this->data());
     }
 
-    /**
-     * @param string $nonce Nonce to verify
-     *
-     * @return bool|int
-     */
-    public function verify($nonce)
-    {
-        $nonce = (string)$nonce;
-
-        if (empty($nonce)) {
-            return false;
-        }
-
-        $expected = $this->hash($this->data());
-        if (hash_equals($expected, $nonce)) {
-            return 1;
-        }
-
-        $expected = $this->hash($this->data(-1));
-        if (hash_equals($expected, $nonce)) {
-            return 2;
-        }
-
-        return false;
-    }
-
 }

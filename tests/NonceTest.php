@@ -28,23 +28,6 @@ class NonceTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(self::$nonce, (string)$nonce);
     }
 
-    public function testVerification()
-    {
-        $nonce = new Nonce();
-
-        $this->assertFalse($nonce->verify(''), 'Empty Nonce');
-
-        $this->assertEquals(1, $nonce->verify(self::$nonce), 'Nonce less than 12 hours old');
-
-        time(self::$time + 3600 * 12);
-
-        $this->assertEquals(2, $nonce->verify(self::$nonce), 'Nonce less than 24 hours old');
-
-        time(self::$time + 3600 * 24);
-
-        $this->assertFalse($nonce->verify(self::$nonce), 'Nonce older than 24 hours');
-    }
-
     public static function tearDownAfterClass()
     {
         Config::setLifespan(86400);

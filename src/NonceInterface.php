@@ -9,6 +9,4 @@ interface NonceInterface
 
     public function generate();
 
-    public function verify($nonce);
-
 }
